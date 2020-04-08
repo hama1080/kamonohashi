@@ -19,9 +19,8 @@ namespace Nssol.Platypus.ApiModels.TrainingApiModels
                 Name = container.Name;
                 if (status.Exist() && string.IsNullOrEmpty(container.Host) == false)
                 {
-                    //リバプロなどでノードのホスト名ではなく、共通のエンドポイントを使える場合は、そっちを使う
-                    string host = string.IsNullOrEmpty(endpoint) ? container.Host : endpoint;
-                    Url = new UriBuilder("http", host, (int)container.PortNo).ToString();
+                    // リバプロを介したアクセスパスを返す
+                    Path = "nodeport/" + container.PortNo.ToString();
                 }
             }
         }
@@ -39,8 +38,8 @@ namespace Nssol.Platypus.ApiModels.TrainingApiModels
         /// </summary>
         public string StatusType { get; set; }
         /// <summary>
-        /// アクセスURL
+        /// アクセスパス
         /// </summary>
-        public string Url { get; set; }
+        public string Path { get; set; }
     }
 }

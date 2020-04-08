@@ -221,10 +221,10 @@
                     />
                     <el-table-column prop="value" label="Node Port">
                       <template slot-scope="scope">
-                        {{ scope.row.value }}
+                        {{ `${hostname}/${scope.row.value}` }}
                         <el-tooltip content="copy" placement="right">
                           <el-button
-                            v-clipboard:copy="scope.row.value"
+                            v-clipboard:copy="`${hostname}/${scope.row.value}`"
                             circle
                             size="mini"
                             icon="el-icon-copy-document"
@@ -334,6 +334,7 @@ export default {
       },
       title: '',
       dialogVisible: true,
+      hostname: null,
       error: null,
     }
   },
@@ -348,6 +349,7 @@ export default {
   },
 
   async created() {
+    this.hostname = window.location.hostname
     await this.initialize()
   },
   methods: {

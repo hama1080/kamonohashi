@@ -237,9 +237,8 @@ namespace Nssol.Platypus.Controllers.spa
                 var nodeEndPoint = endPoints.Where(name => name.Key == "notebook").FirstOrDefault();
                 if (nodeEndPoint != null)
                 {
-                    // リバプロなどでノードのホスト名ではなく、共通のエンドポイントを使える場合は、そちらを使用する
-                    string host = string.IsNullOrEmpty(webEndpoint) ? nodeEndPoint.Host : webEndpoint;
-                    return new UriBuilder("http", host, (int)nodeEndPoint.Port).ToString() + token;
+                    // リバプロを介したアクセスパスを返す
+                    return "nodeport/" + nodeEndPoint.Port.ToString() + token;
                 }
             }
             return "";

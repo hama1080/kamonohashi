@@ -14,7 +14,7 @@
       状態確認中...
     </span>
     <span v-else-if="statusName === 'Running'">
-      <div v-if="tensorboard.url" class="tensorBoardlink">
+      <div v-if="tensorboard.path" class="tensorBoardlink">
         <el-button type="primary" size="small" plain @click="openTensorBoard">
           開く
         </el-button>
@@ -102,7 +102,7 @@ export default {
     },
     // TensorBoardを開く
     openTensorBoard() {
-      window.open(this.tensorboard.url)
+      window.open(this.tensorboard.path)
     },
     // TensorBoard削除
     async deleteTensorBoard() {
