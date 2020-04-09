@@ -238,7 +238,7 @@ namespace Nssol.Platypus.Controllers.spa
                 if (nodeEndPoint != null)
                 {
                     // リバプロを介したアクセスパスを返す
-                    return "nodeport/" + nodeEndPoint.Port.ToString() + token;
+                    return "nodeport/" + nodeEndPoint.Port.ToString() + "/"  + token;
                 }
             }
             return "";

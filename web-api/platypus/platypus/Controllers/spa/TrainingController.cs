@@ -244,7 +244,7 @@ namespace Nssol.Platypus.Controllers.spa
                     foreach (var endpoint in details.EndPoints)
                     {
                         // リバプロを介したアクセスパスを返す
-                        model.NodePorts.Add(new KeyValuePair<string, string>(endpoint.Key, "nodeport/" + endpoint.Port.ToString()));
+                        model.NodePorts.Add(new KeyValuePair<string, string>(endpoint.Key, "nodeport/" + endpoint.Port.ToString() + "/"));
                     }
                 }
             }

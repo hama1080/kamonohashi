@@ -20,7 +20,7 @@ namespace Nssol.Platypus.ApiModels.TrainingApiModels
                 if (status.Exist() && string.IsNullOrEmpty(container.Host) == false)
                 {
                     // リバプロを介したアクセスパスを返す
-                    Path = "nodeport/" + container.PortNo.ToString();
+                    Path = "nodeport/" + container.PortNo.ToString() + "/";
                 }
             }
         }
